@@ -58,17 +58,20 @@ export function HeroFlight() {
           style={{ opacity: heroOpacity }}
           className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-6"
         >
-          <div className="w-full max-w-7xl">
-            <p className="mb-3 text-center text-[10px] font-medium uppercase tracking-[0.4em] text-cream md:mb-4 md:text-xs drop-shadow-[0_2px_8px_rgba(20,30,60,0.7)]">
+          <motion.div style={{ y: nameY, opacity: nameOpacity }} className="w-full max-w-7xl">
+            <motion.p
+              style={{ opacity: tagOpacity }}
+              className="mb-3 text-center text-[10px] font-medium uppercase tracking-[0.4em] text-cream md:mb-4 md:text-xs drop-shadow-[0_2px_8px_rgba(20,30,60,0.7)]"
+            >
               Hello, I'm
-            </p>
+            </motion.p>
             <h1
               className="text-display text-center text-[24vw] leading-[0.85] text-cream md:text-[15vw] drop-shadow-[0_6px_30px_rgba(20,30,60,0.7)]"
               style={{ letterSpacing: "-0.06em" }}
             >
               Abhinav
             </h1>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Foreground mountain silhouette — covers lower portion of typography */}
