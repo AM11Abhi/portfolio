@@ -118,7 +118,7 @@ export function HeroFlight() {
             <img
               src={cessna}
               alt="Cessna aircraft"
-              className="h-auto w-[200px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] md:w-[260px]"
+              className="h-auto w-[140px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] sm:w-[200px] md:w-[260px]"
               width={260}
               height={170}
             />
