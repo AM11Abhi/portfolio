@@ -14,15 +14,20 @@ export function HeroFlight() {
 
   const p = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
-  // Airplane travels right -> left across the viewport
-  const planeX = useTransform(p, [0, 1], ["110vw", "-30vw"]);
-  const planeY = useTransform(p, [0, 0.5, 1], ["0vh", "-2vh", "1vh"]);
+  // Name rises up from behind the foreground mountain in the first beat
+  const nameY = useTransform(p, [0, 0.22], ["55vh", "0vh"]);
+  const nameOpacity = useTransform(p, [0, 0.04, 0.22], [0, 1, 1]);
+  const tagOpacity = useTransform(p, [0.18, 0.28], [0, 1]);
+
+  // Airplane travels right -> left across the viewport (after name reveal)
+  const planeX = useTransform(p, [0.28, 1], ["110vw", "-30vw"]);
+  const planeY = useTransform(p, [0.28, 0.6, 1], ["0vh", "-2vh", "1vh"]);
 
   // Projects panel: linked to plane during the drag, then locks at 0
-  const panelX = useTransform(p, [0.05, 0.85, 1], ["110vw", "10vw", "0vw"]);
+  const panelX = useTransform(p, [0.32, 0.88, 1], ["110vw", "10vw", "0vw"]);
 
   // Hero content gently parallaxes and fades as the panel covers it
-  const heroOpacity = useTransform(p, [0.5, 0.9], [1, 0]);
+  const heroOpacity = useTransform(p, [0.6, 0.92], [1, 0]);
   const heroScale = useTransform(p, [0, 1], [1, 0.96]);
   const skyY = useTransform(p, [0, 1], ["0%", "-8%"]);
   const fgY = useTransform(p, [0, 1], ["0%", "3%"]);
