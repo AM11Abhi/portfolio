@@ -34,11 +34,11 @@ const projects = [
 export function Projects({ inHero = false }: { inHero?: boolean }) {
   return (
     <section
-      id="projects"
+      id={inHero ? undefined : "projects"}
       className={
         inHero
-          ? "h-full overflow-y-auto px-6 py-16 md:px-16 md:py-20"
-          : "border-t border-border px-6 py-24 md:px-16 md:py-32"
+          ? "h-full overflow-hidden px-6 py-16 md:px-16 md:py-20"
+          : "px-6 py-24 md:px-16 md:py-32"
       }
     >
       <div className="mx-auto max-w-6xl">
