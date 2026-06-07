@@ -30,8 +30,9 @@ export function HeroFlight() {
   const scrollHintOpacity = useTransform(p, [0, 0.05], [1, 0]);
 
   return (
-    <section ref={ref} className="relative" style={{ height: "260vh" }}>
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-cream">
+    <section ref={ref} className="relative h-[200vh] md:h-[260vh]">
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
+
         {/* Sky / distant mountains */}
         <motion.div
           style={{ y: skyY, scale: heroScale, opacity: heroOpacity }}
