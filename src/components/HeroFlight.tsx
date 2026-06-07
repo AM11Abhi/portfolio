@@ -30,8 +30,9 @@ export function HeroFlight() {
   const scrollHintOpacity = useTransform(p, [0, 0.05], [1, 0]);
 
   return (
-    <section ref={ref} className="relative" style={{ height: "260vh" }}>
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-cream">
+    <section ref={ref} className="relative h-[200vh] md:h-[260vh]">
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
+
         {/* Sky / distant mountains */}
         <motion.div
           style={{ y: skyY, scale: heroScale, opacity: heroOpacity }}
@@ -53,11 +54,11 @@ export function HeroFlight() {
           className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-6"
         >
           <div className="w-full max-w-7xl">
-            <p className="mb-4 text-center text-xs font-medium uppercase tracking-[0.4em] text-ink/70">
+            <p className="mb-3 text-center text-[10px] font-medium uppercase tracking-[0.4em] text-cream md:mb-4 md:text-xs drop-shadow-[0_2px_8px_rgba(20,30,60,0.7)]">
               Hello, I'm
             </p>
             <h1
-              className="text-display text-center text-[18vw] leading-[0.85] text-ink md:text-[15vw]"
+              className="text-display text-center text-[24vw] leading-[0.85] text-cream md:text-[15vw] drop-shadow-[0_6px_30px_rgba(20,30,60,0.7)]"
               style={{ letterSpacing: "-0.06em" }}
             >
               Abhinav
@@ -117,7 +118,7 @@ export function HeroFlight() {
             <img
               src={cessna}
               alt="Cessna aircraft"
-              className="h-auto w-[200px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] md:w-[260px]"
+              className="h-auto w-[140px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] sm:w-[200px] md:w-[260px]"
               width={260}
               height={170}
             />
