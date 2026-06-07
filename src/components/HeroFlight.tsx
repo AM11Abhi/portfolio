@@ -14,15 +14,20 @@ export function HeroFlight() {
 
   const p = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
-  // Airplane travels right -> left across the viewport
-  const planeX = useTransform(p, [0, 1], ["110vw", "-30vw"]);
-  const planeY = useTransform(p, [0, 0.5, 1], ["0vh", "-2vh", "1vh"]);
+  // Name rises up from behind the foreground mountain in the first beat
+  const nameY = useTransform(p, [0, 0.22], ["55vh", "0vh"]);
+  const nameOpacity = useTransform(p, [0, 0.04, 0.22], [0, 1, 1]);
+  const tagOpacity = useTransform(p, [0.18, 0.28], [0, 1]);
+
+  // Airplane travels right -> left across the viewport (after name reveal)
+  const planeX = useTransform(p, [0.28, 1], ["110vw", "-30vw"]);
+  const planeY = useTransform(p, [0.28, 0.6, 1], ["0vh", "-2vh", "1vh"]);
 
   // Projects panel: linked to plane during the drag, then locks at 0
-  const panelX = useTransform(p, [0.05, 0.85, 1], ["110vw", "10vw", "0vw"]);
+  const panelX = useTransform(p, [0.32, 0.88, 1], ["110vw", "10vw", "0vw"]);
 
   // Hero content gently parallaxes and fades as the panel covers it
-  const heroOpacity = useTransform(p, [0.5, 0.9], [1, 0]);
+  const heroOpacity = useTransform(p, [0.6, 0.92], [1, 0]);
   const heroScale = useTransform(p, [0, 1], [1, 0.96]);
   const skyY = useTransform(p, [0, 1], ["0%", "-8%"]);
   const fgY = useTransform(p, [0, 1], ["0%", "3%"]);
@@ -53,17 +58,20 @@ export function HeroFlight() {
           style={{ opacity: heroOpacity }}
           className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-6"
         >
-          <div className="w-full max-w-7xl">
-            <p className="mb-3 text-center text-[10px] font-medium uppercase tracking-[0.4em] text-cream md:mb-4 md:text-xs drop-shadow-[0_2px_8px_rgba(20,30,60,0.7)]">
+          <motion.div style={{ y: nameY, opacity: nameOpacity }} className="w-full max-w-7xl">
+            <motion.p
+              style={{ opacity: tagOpacity }}
+              className="mb-3 text-center text-[10px] font-medium uppercase tracking-[0.4em] text-cream md:mb-4 md:text-xs drop-shadow-[0_2px_8px_rgba(20,30,60,0.7)]"
+            >
               Hello, I'm
-            </p>
+            </motion.p>
             <h1
               className="text-display text-center text-[24vw] leading-[0.85] text-cream md:text-[15vw] drop-shadow-[0_6px_30px_rgba(20,30,60,0.7)]"
               style={{ letterSpacing: "-0.06em" }}
             >
               Abhinav
             </h1>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Foreground mountain silhouette — covers lower portion of typography */}
