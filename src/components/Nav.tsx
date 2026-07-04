@@ -6,7 +6,7 @@ export function Nav() {
     { href: "#contact", label: "Contact" },
   ];
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 mix-blend-difference">
+    <nav className="fixed inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
         <a href="#" className="text-display text-lg font-semibold text-cream">
           A.
