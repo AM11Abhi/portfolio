@@ -32,19 +32,17 @@ export function HeroFlight() {
     <section ref={ref} className="relative h-[200vh] md:h-[260vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
 
-        {/* Sky / distant mountains */}
+        {/* Pixel art landscape hero */}
         <motion.div
           style={{ y: skyY, scale: heroScale, opacity: heroOpacity }}
           className="absolute inset-0"
         >
           <img
-            src={heroMountains}
-            alt=""
-            className="h-full w-full object-cover"
-            width={1920}
-            height={1280}
+            src={landingPixelArt.url}
+            alt="Pixel art mountain landscape with adventurer on a cliff"
+            className="h-full w-full object-cover object-bottom"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-transparent to-cream/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink/30" />
         </motion.div>
 
         {/* Hero typography — sits between distant and foreground mountains */}
