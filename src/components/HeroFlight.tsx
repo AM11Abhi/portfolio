@@ -22,8 +22,8 @@ export function HeroFlight() {
 
   // Hero content gently parallaxes and fades as the panel covers it
   const heroOpacity = useTransform(p, [0.5, 0.9], [1, 0]);
-  const heroScale = useTransform(p, [0, 1], [1, 0.96]);
-  const skyY = useTransform(p, [0, 1], ["0%", "-8%"]);
+  const heroScale = useTransform(p, [0, 1], [1, 1.05]);
+  const skyY = useTransform(p, [0, 1], ["0%", "0%"]);
 
   const scrollHintOpacity = useTransform(p, [0, 0.05], [1, 0]);
 
