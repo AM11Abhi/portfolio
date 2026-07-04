@@ -62,20 +62,6 @@ export function HeroFlight() {
           </div>
         </motion.div>
 
-        {/* Foreground mountain silhouette — covers lower portion of typography */}
-        <motion.div
-          style={{ y: fgY, opacity: heroOpacity }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-20"
-        >
-          <img
-            src={foregroundMountains}
-            alt=""
-            className="h-auto w-full select-none"
-            width={1920}
-            height={768}
-          />
-        </motion.div>
-
         {/* Sub-headline + CTA below the mountains */}
         <motion.div
           style={{ opacity: heroOpacity }}
