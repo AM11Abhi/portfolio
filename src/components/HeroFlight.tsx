@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import heroMountains from "@/assets/hero-mountains.jpg";
-import foregroundMountains from "@/assets/foreground-mountains.png";
+import landingPixelArt from "@/assets/landing-pixel-art.png.asset.json";
 import cessna from "@/assets/cessna.png";
 import { Projects } from "./Projects";
 
@@ -25,7 +24,6 @@ export function HeroFlight() {
   const heroOpacity = useTransform(p, [0.5, 0.9], [1, 0]);
   const heroScale = useTransform(p, [0, 1], [1, 0.96]);
   const skyY = useTransform(p, [0, 1], ["0%", "-8%"]);
-  const fgY = useTransform(p, [0, 1], ["0%", "3%"]);
 
   const scrollHintOpacity = useTransform(p, [0, 0.05], [1, 0]);
 
@@ -33,19 +31,17 @@ export function HeroFlight() {
     <section ref={ref} className="relative h-[200vh] md:h-[260vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
 
-        {/* Sky / distant mountains */}
+        {/* Pixel art landscape hero */}
         <motion.div
           style={{ y: skyY, scale: heroScale, opacity: heroOpacity }}
           className="absolute inset-0"
         >
           <img
-            src={heroMountains}
-            alt=""
-            className="h-full w-full object-cover"
-            width={1920}
-            height={1280}
+            src={landingPixelArt.url}
+            alt="Pixel art mountain landscape with adventurer on a cliff"
+            className="h-full w-full object-cover object-bottom"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-cream/40 via-transparent to-cream/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-transparent to-ink/30" />
         </motion.div>
 
         {/* Hero typography — sits between distant and foreground mountains */}
@@ -64,20 +60,6 @@ export function HeroFlight() {
               Abhinav
             </h1>
           </div>
-        </motion.div>
-
-        {/* Foreground mountain silhouette — covers lower portion of typography */}
-        <motion.div
-          style={{ y: fgY, opacity: heroOpacity }}
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-20"
-        >
-          <img
-            src={foregroundMountains}
-            alt=""
-            className="h-auto w-full select-none"
-            width={1920}
-            height={768}
-          />
         </motion.div>
 
         {/* Sub-headline + CTA below the mountains */}
