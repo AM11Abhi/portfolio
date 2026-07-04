@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import heroMountains from "@/assets/hero-mountains.jpg";
-import foregroundMountains from "@/assets/foreground-mountains.png";
+import landingPixelArt from "@/assets/landing-pixel-art.png.asset.json";
 import cessna from "@/assets/cessna.png";
 import { Projects } from "./Projects";
 
