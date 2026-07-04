@@ -31,7 +31,7 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground">
       <Nav />
       <HeroFlight />
-      <Projects />
+      
       <About />
       <Experience />
       <Skills />
