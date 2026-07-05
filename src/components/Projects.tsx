@@ -42,7 +42,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
       }
     >
       <div className="mx-auto max-w-6xl">
-        <header className="mb-12 flex items-end justify-between gap-6 md:mb-16">
+        <header className="mb-6 flex items-end justify-between gap-6 md:mb-16">
           <div>
             <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-muted-foreground">
               01 — Selected Work
