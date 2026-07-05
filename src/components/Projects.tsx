@@ -37,7 +37,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
       id={inHero ? undefined : "projects"}
       className={
         inHero
-          ? "h-full overflow-hidden px-6 py-16 md:px-16 md:py-20"
+          ? "h-full overflow-hidden px-6 py-8 md:px-16 md:py-20"
           : "px-6 py-24 md:px-16 md:py-32"
       }
     >
