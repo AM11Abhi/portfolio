@@ -42,7 +42,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
       }
     >
       <div className="mx-auto max-w-6xl">
-        <header className="mb-6 flex items-end justify-between gap-6 md:mb-16">
+        <header className="mb-12 flex items-end justify-between gap-6 md:mb-16">
           <div>
             <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-muted-foreground">
               01 — Selected Work
@@ -56,12 +56,12 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
           </p>
         </header>
 
-        <div className={`grid gap-px bg-border ${inHero ? "grid-cols-2" : "md:grid-cols-2"}`}>
+        <div className="grid gap-px bg-border md:grid-cols-2">
           {projects.map((p) => (
             <a
               key={p.title}
               href={p.href}
-              className="group relative flex flex-col gap-3 bg-background p-3 transition-colors hover:bg-secondary md:gap-6 md:p-10"
+              className="group relative flex flex-col gap-6 bg-background p-8 transition-colors hover:bg-secondary md:p-10"
             >
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-display text-2xl text-foreground md:text-3xl">
@@ -69,7 +69,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
                 </h3>
                 <ArrowUpRight className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </div>
-              <p className={`text-sm leading-relaxed text-muted-foreground md:text-base ${inHero ? "hidden md:block" : ""}`}>
+              <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
                 {p.description}
               </p>
               <div className="mt-auto flex flex-wrap gap-2">
