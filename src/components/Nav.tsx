@@ -1,4 +1,15 @@
+import { useState, useEffect } from "react";
+
 export function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   const links = [
     { href: "#projects", label: "Work" },
     { href: "#about", label: "About" },
@@ -6,7 +17,7 @@ export function Nav() {
     { href: "#contact", label: "Contact" },
   ];
   return (
-    <nav className="fixed inset-x-0 top-0 z-50">
+    <nav className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-ink/60 backdrop-blur-md" : ""}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
         <a href="#" className="text-display text-lg font-semibold text-cream">
           A.
