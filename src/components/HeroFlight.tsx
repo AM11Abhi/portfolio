@@ -114,7 +114,7 @@ export function HeroFlight() {
           style={{ x: panelX }}
           className="absolute inset-y-0 right-0 z-30 w-full bg-background shadow-[-30px_0_80px_-20px_rgba(20,30,60,0.25)]"
         >
-          <div className="h-full w-full overflow-hidden">
+          <div className="h-full w-full overflow-y-auto md:overflow-hidden">
             <Projects inHero />
           </div>
         </motion.div>
