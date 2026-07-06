@@ -1,11 +1,12 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
 import landingPixelArt from "@/assets/landing-pixel-art.png.asset.json";
 import cessna from "@/assets/cessna.png";
 import { Projects } from "./Projects";
 
-export function HeroFlight() {
+export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "hero" | "project") => void }) {
   const ref = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
@@ -19,6 +20,11 @@ export function HeroFlight() {
 
   // Projects panel: linked to plane during the drag, then locks at 0
   const panelX = useTransform(p, [0.05, 0.85, 1], ["110vw", "10vw", "0vw"]);
+
+  // Switch navbar theme once the project panel starts covering the viewport
+  useMotionValueEvent(p, "change", (latest) => {
+    onNavThemeChange?.(latest > 0.55 ? "project" : "hero");
+  });
 
   // Hero content gently parallaxes and fades as the panel covers it
   const heroOpacity = useTransform(p, [0.5, 0.9], [1, 0]);
