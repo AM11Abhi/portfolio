@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { HeroFlight } from "@/components/HeroFlight";
 
 import { About } from "@/components/About";
@@ -27,11 +28,12 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const [navTheme, setNavTheme] = useState<"hero" | "project">("hero");
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <Nav />
-      <HeroFlight />
-      
+      <Nav theme={navTheme} />
+      <HeroFlight onNavThemeChange={setNavTheme} />
+
       <About />
       <Experience />
       <Skills />
