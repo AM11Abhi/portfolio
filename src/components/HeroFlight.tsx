@@ -14,12 +14,12 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
 
   const p = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
-  // Airplane travels right -> left across the viewport
-  const planeX = useTransform(p, [0, 1], ["110vw", "-30vw"]);
-  const planeY = useTransform(p, [0, 0.5, 1], ["0vh", "-2vh", "1vh"]);
+  // Airplane travels right -> left, then keeps moving away while the projects panel rests.
+  const planeX = useTransform(p, [0, 0.76, 1], ["110vw", "-18vw", "-38vw"]);
+  const planeY = useTransform(p, [0, 0.38, 0.76, 1], ["0vh", "-2vh", "0vh", "1vh"]);
 
-  // Projects panel: linked to plane during the drag, then locks at 0
-  const panelX = useTransform(p, [0.05, 0.85, 1], ["110vw", "10vw", "0vw"]);
+  // Projects panel lands before the sticky section ends, creating a calmer pause at the top.
+  const panelX = useTransform(p, [0.05, 0.74, 1], ["110vw", "0vw", "0vw"]);
 
   // Switch navbar theme once the project panel starts covering the viewport
   useMotionValueEvent(p, "change", (latest) => {
@@ -27,14 +27,14 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
   });
 
   // Hero content gently parallaxes and fades as the panel covers it
-  const heroOpacity = useTransform(p, [0.5, 0.9], [1, 0]);
+  const heroOpacity = useTransform(p, [0.46, 0.74], [1, 0]);
   const heroScale = useTransform(p, [0, 1], [1, 1.05]);
   const skyY = useTransform(p, [0, 1], ["0%", "0%"]);
 
   const scrollHintOpacity = useTransform(p, [0, 0.05], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-[200vh] md:h-[260vh]">
+    <section ref={ref} className="relative h-[260vh] md:h-[300vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
 
         {/* Pixel art landscape hero */}
@@ -43,7 +43,7 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
           className="absolute inset-0"
         >
           <img
-            src={landingPixelArt.url}
+            src={"/src/assets/landing-pixel-art.png.png"}
             alt="Pixel art mountain landscape with adventurer on a cliff"
             className="h-full w-full object-cover object-bottom"
           />
@@ -120,7 +120,7 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
           style={{ x: panelX }}
           className="absolute inset-y-0 right-0 z-30 w-full bg-background shadow-[-30px_0_80px_-20px_rgba(20,30,60,0.25)]"
         >
-          <div className="h-full w-full overflow-hidden">
+          <div className="h-full w-full overflow-y-auto md:overflow-hidden">
             <Projects inHero />
           </div>
         </motion.div>

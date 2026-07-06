@@ -34,20 +34,32 @@ const projects = [
 export function Projects({ inHero = false }: { inHero?: boolean }) {
   return (
     <section
-      id={inHero ? undefined : "projects"}
+      id="projects"
       className={
         inHero
-          ? "h-full overflow-hidden px-6 py-16 md:px-16 md:py-20"
+          ? "min-h-full px-5 pb-8 pt-20 md:h-full md:overflow-hidden md:px-16 md:py-20"
           : "px-6 py-24 md:px-16 md:py-32"
       }
     >
       <div className="mx-auto max-w-6xl">
-        <header className="mb-12 flex items-end justify-between gap-6 md:mb-16">
+        <header
+          className={
+            inHero
+              ? "mb-8 flex items-end justify-between gap-6 md:mb-16"
+              : "mb-12 flex items-end justify-between gap-6 md:mb-16"
+          }
+        >
           <div>
             <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-muted-foreground">
               01 — Selected Work
             </p>
-            <h2 className="text-display text-4xl text-foreground md:text-6xl">
+            <h2
+              className={
+                inHero
+                  ? "text-display text-3xl text-foreground md:text-6xl"
+                  : "text-display text-4xl text-foreground md:text-6xl"
+              }
+            >
               Things I've built
             </h2>
           </div>
@@ -61,10 +73,20 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
             <a
               key={p.title}
               href={p.href}
-              className="group relative flex flex-col gap-6 bg-background p-8 transition-colors hover:bg-secondary md:p-10"
+              className={
+                inHero
+                  ? "group relative flex flex-col gap-4 bg-background p-5 transition-colors hover:bg-secondary md:gap-6 md:p-10"
+                  : "group relative flex flex-col gap-6 bg-background p-8 transition-colors hover:bg-secondary md:p-10"
+              }
             >
               <div className="flex items-start justify-between gap-4">
-                <h3 className="text-display text-2xl text-foreground md:text-3xl">
+                <h3
+                  className={
+                    inHero
+                      ? "text-display text-xl text-foreground md:text-3xl"
+                      : "text-display text-2xl text-foreground md:text-3xl"
+                  }
+                >
                   {p.title}
                 </h3>
                 <ArrowUpRight className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
