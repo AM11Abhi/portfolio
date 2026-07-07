@@ -37,7 +37,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
       id="projects"
       className={
         inHero
-          ? "min-h-full px-5 pb-8 pt-20 md:h-full md:overflow-hidden md:px-16 md:py-20"
+          ? "h-full overflow-hidden px-4 pb-4 pt-16 md:px-16 md:py-20"
           : "px-6 py-24 md:px-16 md:py-32"
       }
     >
@@ -45,7 +45,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
         <header
           className={
             inHero
-              ? "mb-8 flex items-end justify-between gap-6 md:mb-16"
+              ? "mb-4 flex items-end justify-between gap-6 md:mb-16"
               : "mb-12 flex items-end justify-between gap-6 md:mb-16"
           }
         >
@@ -56,7 +56,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
             <h2
               className={
                 inHero
-                  ? "text-display text-3xl text-foreground md:text-6xl"
+                  ? "text-display text-2xl text-foreground sm:text-3xl md:text-6xl"
                   : "text-display text-4xl text-foreground md:text-6xl"
               }
             >
@@ -75,7 +75,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
               href={p.href}
               className={
                 inHero
-                  ? "group relative flex flex-col gap-4 bg-background p-5 transition-colors hover:bg-secondary md:gap-6 md:p-10"
+                  ? "group relative flex flex-col gap-2 bg-background p-3 transition-colors hover:bg-secondary sm:gap-3 sm:p-4 md:gap-6 md:p-10"
                   : "group relative flex flex-col gap-6 bg-background p-8 transition-colors hover:bg-secondary md:p-10"
               }
             >
@@ -83,7 +83,7 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
                 <h3
                   className={
                     inHero
-                      ? "text-display text-xl text-foreground md:text-3xl"
+                      ? "text-display text-lg text-foreground sm:text-xl md:text-3xl"
                       : "text-display text-2xl text-foreground md:text-3xl"
                   }
                 >
@@ -91,14 +91,24 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
                 </h3>
                 <ArrowUpRight className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </div>
-              <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+              <p
+                className={
+                  inHero
+                    ? "overflow-hidden text-xs leading-snug text-muted-foreground [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] sm:text-sm md:text-base md:leading-relaxed"
+                    : "text-sm leading-relaxed text-muted-foreground md:text-base"
+                }
+              >
                 {p.description}
               </p>
-              <div className="mt-auto flex flex-wrap gap-2">
+              <div className={inHero ? "mt-auto flex flex-wrap gap-1.5 md:gap-2" : "mt-auto flex flex-wrap gap-2"}>
                 {p.stack.map((s) => (
                   <span
                     key={s}
-                    className="border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground"
+                    className={
+                      inHero
+                        ? "border border-border px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground md:px-2.5 md:py-1 md:text-[10px]"
+                        : "border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground"
+                    }
                   >
                     {s}
                   </span>

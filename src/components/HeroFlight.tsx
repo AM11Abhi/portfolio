@@ -106,12 +106,12 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
             <img
               src={cessna}
               alt="Cessna aircraft"
-              className="h-auto w-[140px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] sm:w-[200px] md:w-[260px]"
+              className="h-auto w-[165px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] sm:w-[220px] md:w-[260px]"
               width={260}
               height={170}
             />
             {/* Tether line connecting tail to panel */}
-            <div className="absolute left-full top-1/2 h-px w-[12vw] -translate-y-1/2 bg-gradient-to-r from-ink/40 to-ink/10" />
+            <div className="absolute left-full top-1/2 h-px w-[22vw] -translate-y-1/2 bg-gradient-to-r from-ink/40 to-ink/10 md:w-[12vw]" />
           </div>
         </motion.div>
 
@@ -120,7 +120,7 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
           style={{ x: panelX }}
           className="absolute inset-y-0 right-0 z-30 w-full bg-background shadow-[-30px_0_80px_-20px_rgba(20,30,60,0.25)]"
         >
-          <div className="h-full w-full overflow-y-auto md:overflow-hidden">
+          <div className="h-full w-full overflow-hidden">
             <Projects inHero />
           </div>
         </motion.div>
