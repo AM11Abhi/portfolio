@@ -8,7 +8,10 @@ const links = [
 
 export function Contact() {
   return (
-    <section id="contact" className="border-t border-border bg-ink px-6 py-24 text-cream md:px-16 md:py-32">
+    <section
+      id="contact"
+      className="border-t border-border bg-ink px-6 py-24 text-cream md:px-16 md:py-32"
+    >
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-cream/60">
           05 — Get in touch

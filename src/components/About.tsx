@@ -12,10 +12,13 @@ export function About() {
         </div>
         <div className="space-y-8 md:col-span-7 md:col-start-6">
           <p className="text-lg leading-relaxed text-foreground/85">
-            I'm a software engineer who treats every project like a small expedition — pick a direction worth walking in, pack light, and trust the path will reveal itself.
+            I'm a software engineer who treats every project like a small expedition — pick a
+            direction worth walking in, pack light, and trust the path will reveal itself.
           </p>
           <p className="text-base leading-relaxed text-muted-foreground">
-            I've spent the last several years building backend systems, developer tools, and consumer products at the intersection of craft and scale. I care about good interfaces, honest typography, and software that respects the people using it.
+            I've spent the last several years building backend systems, developer tools, and
+            consumer products at the intersection of craft and scale. I care about good interfaces,
+            honest typography, and software that respects the people using it.
           </p>
 
           <div className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
@@ -37,7 +40,8 @@ export function About() {
                 Looking ahead
               </p>
               <p className="text-sm text-foreground">
-                Building tools that make complex systems feel calm — and starting something of my own worth a long flight.
+                Building tools that make complex systems feel calm — and starting something of my
+                own worth a long flight.
               </p>
             </div>
           </div>

@@ -3,9 +3,15 @@ import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 
 import landingPixelArt from "@/assets/landing-pixel-art.png.asset.json";
 import cessna from "@/assets/cessna.png";
 import { Projects } from "./Projects";
+import { useIsMobile } from "@/hooks/use-mobile";
 
-export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "hero" | "project") => void }) {
+export function HeroFlight({
+  onNavThemeChange,
+}: {
+  onNavThemeChange?: (theme: "hero" | "project") => void;
+}) {
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -15,13 +21,13 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
   const p = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
   // Airplane travels right -> left, then keeps moving away while the projects panel rests.
-  const planeX = useTransform(p, [0, 0.76, 1], ["110vw", "-18vw", "-38vw"]);
+  const planeXRange = isMobile ? ["120vw", "-75vw", "-95vw"] : ["110vw", "-18vw", "-38vw"];
+  const planeX = useTransform(p, [0, 0.76, 1], planeXRange);
   const planeY = useTransform(p, [0, 0.38, 0.76, 1], ["0vh", "-2vh", "0vh", "1vh"]);
 
   // Projects panel lands before the sticky section ends, creating a calmer pause at the top.
-  const panelX = useTransform(p, [0.05, 0.74, 1], ["110vw", "0vw", "0vw"]);
-
-  // Switch navbar theme once the project panel starts covering the viewport
+  const panelXRangeProgress = isMobile ? [0.22, 0.74, 1] : [0.05, 0.74, 1];
+  const panelX = useTransform(p, panelXRangeProgress, ["110vw", "0vw", "0vw"]);
   useMotionValueEvent(p, "change", (latest) => {
     onNavThemeChange?.(latest > 0.55 ? "project" : "hero");
   });
@@ -36,7 +42,6 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
   return (
     <section ref={ref} className="relative h-[260vh] md:h-[300vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
-
         {/* Pixel art landscape hero */}
         <motion.div
           style={{ y: skyY, scale: heroScale, opacity: heroOpacity }}
@@ -74,7 +79,8 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
           className="absolute inset-x-0 bottom-10 z-30 flex flex-col items-center gap-5 px-6 text-center"
         >
           <p className="max-w-xl text-sm text-cream/90 md:text-base">
-            Software Engineer & Builder — building products, exploring ideas, and creating digital experiences.
+            Software Engineer & Builder — building products, exploring ideas, and creating digital
+            experiences.
           </p>
           <a
             href="#projects"
@@ -98,20 +104,20 @@ export function HeroFlight({ onNavThemeChange }: { onNavThemeChange?: (theme: "h
         </motion.div>
 
         {/* Airplane — drags Projects panel from right to left */}
-        <motion.div
-          style={{ x: planeX, y: planeY }}
-          className="absolute top-[38%] z-40"
-        >
-          <div className="relative flex items-center" style={{ animation: "float-prop 4s ease-in-out infinite" }}>
+        <motion.div style={{ x: planeX, y: planeY }} className="absolute top-[38%] z-40">
+          <div
+            className="relative flex items-center"
+            style={{ animation: "float-prop 4s ease-in-out infinite" }}
+          >
             <img
               src={cessna}
               alt="Cessna aircraft"
-              className="h-auto w-[165px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] sm:w-[220px] md:w-[260px]"
+              className="h-auto w-[195px] select-none drop-shadow-[0_20px_30px_rgba(20,30,60,0.25)] sm:w-[235px] md:w-[260px]"
               width={260}
               height={170}
             />
             {/* Tether line connecting tail to panel */}
-            <div className="absolute left-full top-1/2 h-px w-[22vw] -translate-y-1/2 bg-gradient-to-r from-ink/40 to-ink/10 md:w-[12vw]" />
+            <div className="absolute left-full top-1/2 h-px w-[16vw] sm:w-[24vw] md:w-[12vw] -translate-y-1/2 bg-gradient-to-r from-ink/40 to-ink/10" />
           </div>
         </motion.div>
 

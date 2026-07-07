@@ -100,7 +100,13 @@ export function Projects({ inHero = false }: { inHero?: boolean }) {
               >
                 {p.description}
               </p>
-              <div className={inHero ? "mt-auto flex flex-wrap gap-1.5 md:gap-2" : "mt-auto flex flex-wrap gap-2"}>
+              <div
+                className={
+                  inHero
+                    ? "mt-auto flex flex-wrap gap-1.5 md:gap-2"
+                    : "mt-auto flex flex-wrap gap-2"
+                }
+              >
                 {p.stack.map((s) => (
                   <span
                     key={s}

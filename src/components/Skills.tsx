@@ -25,9 +25,7 @@ export function Skills() {
           <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-muted-foreground">
             04 — Toolkit
           </p>
-          <h2 className="text-display text-4xl text-foreground md:text-5xl">
-            What I reach for.
-          </h2>
+          <h2 className="text-display text-4xl text-foreground md:text-5xl">What I reach for.</h2>
         </header>
 
         <div className="grid gap-px bg-border md:grid-cols-2 lg:grid-cols-4">
@@ -38,10 +36,7 @@ export function Skills() {
               </p>
               <ul className="space-y-2.5">
                 {g.items.map((i) => (
-                  <li
-                    key={i}
-                    className="text-display text-xl text-foreground md:text-2xl"
-                  >
+                  <li key={i} className="text-display text-xl text-foreground md:text-2xl">
                     {i}
                   </li>
                 ))}

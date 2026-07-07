@@ -24,15 +24,16 @@ const roles = [
 
 export function Experience() {
   return (
-    <section id="experience" className="border-t border-border bg-secondary/40 px-6 py-24 md:px-16 md:py-32">
+    <section
+      id="experience"
+      className="border-t border-border bg-secondary/40 px-6 py-24 md:px-16 md:py-32"
+    >
       <div className="mx-auto max-w-6xl">
         <header className="mb-16">
           <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-muted-foreground">
             03 — Experience
           </p>
-          <h2 className="text-display text-4xl text-foreground md:text-5xl">
-            The flight log.
-          </h2>
+          <h2 className="text-display text-4xl text-foreground md:text-5xl">The flight log.</h2>
         </header>
 
         <ol className="space-y-px bg-border">
@@ -47,14 +48,10 @@ export function Experience() {
                 </p>
               </div>
               <div className="md:col-span-4">
-                <h3 className="text-display text-xl text-foreground md:text-2xl">
-                  {r.role}
-                </h3>
+                <h3 className="text-display text-xl text-foreground md:text-2xl">{r.role}</h3>
                 <p className="text-sm text-muted-foreground">{r.company}</p>
               </div>
-              <p className="text-sm leading-relaxed text-foreground/80 md:col-span-5">
-                {r.detail}
-              </p>
+              <p className="text-sm leading-relaxed text-foreground/80 md:col-span-5">{r.detail}</p>
             </li>
           ))}
         </ol>

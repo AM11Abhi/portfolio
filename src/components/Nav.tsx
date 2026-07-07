@@ -11,9 +11,7 @@ export function Nav({ theme = "hero" }: { theme?: NavTheme }) {
   return (
     <nav
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        isHero
-          ? "bg-transparent text-cream"
-          : "bg-cream/85 text-ink shadow-sm backdrop-blur-md"
+        isHero ? "bg-transparent text-cream" : "bg-cream/85 text-ink shadow-sm backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
