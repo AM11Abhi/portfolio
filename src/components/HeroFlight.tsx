@@ -73,34 +73,25 @@ export function HeroFlight({
           </div>
         </motion.div>
 
-        {/* Sub-headline + CTA below the mountains */}
+        {/* Sub-headline & scroll indicator below the mountains */}
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="absolute inset-x-0 bottom-10 z-30 flex flex-col items-center gap-5 px-6 text-center"
+          className="absolute inset-x-0 bottom-6 z-30 flex flex-col items-center gap-6 px-6 text-center"
         >
           <p className="max-w-xl text-sm text-cream/90 md:text-base">
             Software Engineer & Builder — building products, exploring ideas, and creating digital
             experiences.
           </p>
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-3 border border-cream/40 bg-ink/30 px-6 py-3 text-xs font-medium uppercase tracking-[0.3em] text-cream backdrop-blur-sm transition hover:bg-ink/60"
+          <motion.div
+            style={{ opacity: scrollHintOpacity }}
+            className="flex flex-col items-center gap-2 text-cream/80"
           >
-            View my work
-            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-          </a>
-        </motion.div>
-
-        {/* Scroll hint */}
-        <motion.div
-          style={{ opacity: scrollHintOpacity }}
-          className="absolute inset-x-0 bottom-3 z-40 flex flex-col items-center gap-2 text-cream/80"
-        >
-          <span className="text-[10px] uppercase tracking-[0.4em]">Scroll</span>
-          <span
-            className="block h-4 w-px bg-cream/60"
-            style={{ animation: "scroll-hint 1.8s ease-in-out infinite" }}
-          />
+            <span className="text-[10px] uppercase tracking-[0.4em]">Scroll</span>
+            <span
+              className="block h-4 w-px bg-cream/60"
+              style={{ animation: "scroll-hint 1.8s ease-in-out infinite" }}
+            />
+          </motion.div>
         </motion.div>
 
         {/* Airplane — drags Projects panel from right to left */}
