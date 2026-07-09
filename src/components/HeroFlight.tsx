@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
 import landingPixelArt from "@/assets/landing-pixel-art.png.asset.json";
 import cessna from "@/assets/cessna.png";
@@ -12,6 +12,7 @@ export function HeroFlight({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const [isTransitionComplete, setIsTransitionComplete] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -30,6 +31,7 @@ export function HeroFlight({
   const panelX = useTransform(p, panelXRangeProgress, ["110vw", "0vw", "0vw"]);
   useMotionValueEvent(p, "change", (latest) => {
     onNavThemeChange?.(latest > 0.55 ? "project" : "hero");
+    setIsTransitionComplete(latest >= 0.74);
   });
 
   // Hero content gently parallaxes and fades as the panel covers it
@@ -118,7 +120,7 @@ export function HeroFlight({
           className="absolute inset-y-0 right-0 z-30 w-full bg-background shadow-[-30px_0_80px_-20px_rgba(20,30,60,0.25)]"
         >
           <div className="h-full w-full overflow-hidden">
-            <Projects inHero />
+            <Projects inHero isScrollable={isTransitionComplete} />
           </div>
         </motion.div>
       </div>

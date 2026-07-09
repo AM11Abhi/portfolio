@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 
+// ... projects array remains unchanged ...
 const projects = [
   {
     title: "SSBPrep",
@@ -51,13 +52,23 @@ const projects = [
   },
 ];
 
-export function Projects({ inHero = false }: { inHero?: boolean }) {
+export function Projects({
+  inHero = false,
+  isScrollable = false,
+}: {
+  inHero?: boolean;
+  isScrollable?: boolean;
+}) {
   return (
     <section
       id="projects"
       className={
         inHero
-          ? "h-full overflow-hidden px-4 pb-4 pt-16 md:px-16 md:py-20"
+          ? `h-full px-4 pb-4 pt-16 md:px-16 md:py-20 ${
+              isScrollable
+                ? "overflow-y-auto pointer-events-auto"
+                : "overflow-hidden pointer-events-none"
+            }`
           : "px-6 py-24 md:px-16 md:py-32"
       }
     >

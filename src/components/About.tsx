@@ -12,13 +12,13 @@ export function About() {
         </div>
         <div className="space-y-8 md:col-span-7 md:col-start-6">
           <p className="text-lg leading-relaxed text-foreground/85">
-            I'm a software engineer who treats every project like a small expedition — pick a
-            direction worth walking in, pack light, and trust the path will reveal itself.
+            I'm a Computer Science student at Manipal University Jaipur who enjoys building software
+            that solves practical problems. My interests span full-stack development, artificial
+            intelligence, and building products that people genuinely find useful.
           </p>
           <p className="text-base leading-relaxed text-muted-foreground">
-            I've spent the last several years building backend systems, developer tools, and
-            consumer products at the intersection of craft and scale. I care about good interfaces,
-            honest typography, and software that respects the people using it.
+            I've built AI-powered applications, hackathon-winning solutions, developer tools, and full-stack web applications. 
+            From detecting manipulated images to automating developer workflows, I enjoy taking ideas from concept to deployment.
           </p>
 
           <div className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
@@ -26,22 +26,27 @@ export function About() {
               <p className="mb-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                 Education
               </p>
-              <p className="text-sm text-foreground">B.Tech, Computer Science</p>
-              <p className="text-sm text-muted-foreground">IIT — 2019</p>
+              <p className="text-sm text-foreground">B.Tech, Computer Science & Engineering</p>
+              <p className="text-sm text-muted-foreground">
+                Manipal University Jaipur (2023 – 2027)
+              </p>
+              <p className="text-sm text-muted-foreground">CGPA: 9.45/10</p>
             </div>
             <div>
               <p className="mb-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                 Interests
               </p>
-              <p className="text-sm text-foreground">Aviation, hiking, type design, espresso.</p>
+              <p className="text-sm text-foreground">
+                Sports, Squash, Formula 1, Video Editing, Gaming, Defence
+              </p>
             </div>
             <div className="sm:col-span-2">
               <p className="mb-2 text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
                 Looking ahead
               </p>
               <p className="text-sm text-foreground">
-                Building tools that make complex systems feel calm — and starting something of my
-                own worth a long flight.
+                I'm looking forward to contributing to products that impact real-world users while
+                continuing to learn, build, and explore emerging technologies.
               </p>
             </div>
           </div>
