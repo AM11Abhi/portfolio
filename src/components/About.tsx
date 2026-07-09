@@ -17,8 +17,9 @@ export function About() {
             intelligence, and building products that people genuinely find useful.
           </p>
           <p className="text-base leading-relaxed text-muted-foreground">
-            I've built AI-powered applications, hackathon-winning solutions, developer tools, and full-stack web applications. 
-            From detecting manipulated images to automating developer workflows, I enjoy taking ideas from concept to deployment.
+            I've built AI-powered applications, hackathon-winning solutions, developer tools, and
+            full-stack web applications. From detecting manipulated images to automating developer
+            workflows, I enjoy taking ideas from concept to deployment.
           </p>
 
           <div className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2">

@@ -23,19 +23,19 @@ export function HeroFlight({
 
   // Airplane travels right -> left, then keeps moving away while the projects panel rests.
   const planeXRange = isMobile ? ["120vw", "-75vw", "-95vw"] : ["110vw", "-18vw", "-38vw"];
-  const planeX = useTransform(p, [0, 0.76, 1], planeXRange);
-  const planeY = useTransform(p, [0, 0.38, 0.76, 1], ["0vh", "-2vh", "0vh", "1vh"]);
+  const planeX = useTransform(p, [0, 0.9, 1], planeXRange);
+  const planeY = useTransform(p, [0, 0.38, 0.9, 1], ["0vh", "-2vh", "0vh", "1vh"]);
 
   // Projects panel lands before the sticky section ends, creating a calmer pause at the top.
-  const panelXRangeProgress = isMobile ? [0.22, 0.74, 1] : [0.05, 0.74, 1];
+  const panelXRangeProgress = isMobile ? [0.22, 0.9, 1] : [0.05, 0.9, 1];
   const panelX = useTransform(p, panelXRangeProgress, ["110vw", "0vw", "0vw"]);
   useMotionValueEvent(p, "change", (latest) => {
     onNavThemeChange?.(latest > 0.55 ? "project" : "hero");
-    setIsTransitionComplete(latest >= 0.74);
+    setIsTransitionComplete(latest >= 0.9);
   });
 
   // Hero content gently parallaxes and fades as the panel covers it
-  const heroOpacity = useTransform(p, [0.46, 0.74], [1, 0]);
+  const heroOpacity = useTransform(p, [0.46, 0.9], [1, 0]);
   const heroScale = useTransform(p, [0, 1], [1, 1.05]);
   const skyY = useTransform(p, [0, 1], ["0%", "0%"]);
 
