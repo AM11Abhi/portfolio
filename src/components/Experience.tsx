@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from "framer-motion";
 import deloitteLogo from "@/assets/logos/deloitte.svg";
 import pwcLogo from "@/assets/logos/pwc.svg";
 import jpmorganLogo from "@/assets/logos/jpmorgan.svg";
@@ -33,6 +34,26 @@ const roles = [
 ];
 
 export function Experience() {
+  const shouldReduceMotion = useReducedMotion();
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      x: shouldReduceMotion ? 0 : 24,
+      y: 0,
+    },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
+        duration: 0.7, // Slowed down slightly for a gentler glide
+        ease: [0.16, 1, 0.3, 1], // Premium easeOutExpo curve for natural motion
+        delay: shouldReduceMotion ? 0 : i * 0.08, // Stagger delay of 80ms
+      },
+    }),
+  };
+
   return (
     <section
       id="experience"
@@ -46,10 +67,15 @@ export function Experience() {
           <h2 className="text-display text-4xl text-foreground md:text-5xl">The flight log.</h2>
         </header>
 
-        <ol className="space-y-px bg-border">
-          {roles.map((r) => (
-            <li
+        <ol className="space-y-px bg-transparent">
+          {roles.map((r, i) => (
+            <motion.li
               key={r.role}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px 0px" }}
+              variants={cardVariants}
               className="group grid gap-4 bg-background p-8 transition-colors hover:bg-secondary md:grid-cols-12 md:gap-8 md:p-10"
             >
               <div className="md:col-span-3">
@@ -69,7 +95,7 @@ export function Experience() {
                 <p className="text-sm text-muted-foreground">{r.company}</p>
               </div>
               <p className="text-sm leading-relaxed text-foreground/80 md:col-span-5">{r.detail}</p>
-            </li>
+            </motion.li>
           ))}
         </ol>
       </div>
