@@ -1,3 +1,6 @@
+import { InView } from "@/components/core/in-view";
+import profilePic from "@/assets/images/profile.jpg";
+
 export function About() {
   return (
     <section id="about" className="border-t border-border px-6 py-24 md:px-16 md:py-32">
@@ -9,6 +12,23 @@ export function About() {
           <h2 className="text-display text-4xl text-foreground md:text-5xl">
             A builder, quietly curious.
           </h2>
+          <div className="mt-8">
+            <InView
+              variants={{
+                hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+              }}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              viewOptions={{ amount: 0.4 }}
+              once={true}
+            >
+              <img
+                src={profilePic}
+                alt="Abhinav's portrait"
+                className="w-full max-w-[240px] sm:max-w-[220px] md:max-w-[260px] h-auto object-cover rounded-2xl shadow-sm"
+              />
+            </InView>
+          </div>
         </div>
         <div className="space-y-8 md:col-span-7 md:col-start-6">
           <p className="text-lg leading-relaxed text-foreground/85">
