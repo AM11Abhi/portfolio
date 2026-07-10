@@ -1,24 +1,34 @@
+import deloitteLogo from "@/assets/logos/deloitte.svg";
+import pwcLogo from "@/assets/logos/pwc.svg";
+import jpmorganLogo from "@/assets/logos/jpmorgan.svg";
+
 const roles = [
   {
-    year: "2023 — Now",
-    role: "Senior Software Engineer",
-    company: "Northwind Labs",
+    year: "June 2026 — August 2026",
+    role: "Summer Intern",
+    company: "Deloitte – Digital Excellence Centre",
     detail:
-      "Leading the platform team building developer infrastructure used by 4,000+ engineers across the company.",
+      "Worked as a Full-Stack Development Intern, contributing to enterprise applications and gaining hands-on experience building scalable software solutions in a professional development environment.",
+    logo: deloitteLogo,
+    logoClass: "h-[34px] md:h-[43px]",
   },
   {
-    year: "2021 — 2023",
-    role: "Software Engineer",
-    company: "Cirrus & Co.",
+    year: "January 2026 — July 2026",
+    role: "PwC Advisory Launchpad Program Trainee",
+    company: "PwC India",
     detail:
-      "Shipped the realtime collaboration stack and rewrote the sync engine, cutting p99 latency by 68%.",
+      "Completed the PwC Advisory Launchpad Program, developing consulting, analytical, and problem-solving skills through structured training, case studies, and industry-oriented learning.",
+    logo: pwcLogo,
+    logoClass: "h-[30px] md:h-[39px]",
   },
   {
-    year: "2019 — 2021",
-    role: "Founding Engineer",
-    company: "Meridian (acquired)",
+    year: "June 2025",
+    role: "Winner – JPMorgan Chase Code for Good Hackathon",
+    company: "JPMorgan Chase & Co.",
     detail:
-      "First engineer at a logistics startup. Built the routing service, the dashboard, and most of the AWS bill.",
+      "Selected among 200+ finalists from a nationwide pool of 1000+ applicants for JPMorgan Chase Code for Good 2025. Collaborated in a 6-member team to build a React.js and Node.js solution for a nonprofit organization within 24 hours, securing 1st place.",
+    logo: jpmorganLogo,
+    logoClass: "h-[35px] md:h-[44px]",
   },
 ];
 
@@ -40,12 +50,19 @@ export function Experience() {
           {roles.map((r) => (
             <li
               key={r.role}
-              className="grid gap-4 bg-background p-8 transition-colors hover:bg-secondary md:grid-cols-12 md:gap-8 md:p-10"
+              className="group grid gap-4 bg-background p-8 transition-colors hover:bg-secondary md:grid-cols-12 md:gap-8 md:p-10"
             >
               <div className="md:col-span-3">
                 <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
                   {r.year}
                 </p>
+                {r.logo && (
+                  <img
+                    src={r.logo}
+                    alt={`${r.company} logo`}
+                    className={`mt-4 block w-auto object-contain transition-transform duration-200 ease-in-out group-hover:scale-[1.10] ${r.logoClass}`}
+                  />
+                )}
               </div>
               <div className="md:col-span-4">
                 <h3 className="text-display text-xl text-foreground md:text-2xl">{r.role}</h3>
