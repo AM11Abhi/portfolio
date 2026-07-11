@@ -5,6 +5,8 @@ import { HeroFlight } from "@/components/HeroFlight";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
+import { CodingJourney } from "@/components/CodingJourney";
+import { Gallery } from "@/components/Gallery";
 import { Contact } from "@/components/Contact";
 import { Nav } from "@/components/Nav";
 
@@ -37,6 +39,8 @@ function Index() {
       <About />
       <Experience />
       <Skills />
+      <CodingJourney />
+      <Gallery />
       <Contact />
     </main>
   );

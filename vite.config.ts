@@ -12,4 +12,19 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    server: {
+      proxy: {
+        "/api/leetcode": {
+          target: "https://leetcode.com/graphql",
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api\/leetcode/, ""),
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+            Referer: "https://leetcode.com",
+          },
+        },
+      },
+    },
+  },
 });

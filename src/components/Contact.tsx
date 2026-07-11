@@ -14,7 +14,7 @@ export function Contact() {
     >
       <div className="mx-auto max-w-6xl">
         <p className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-cream/60">
-          05 — Get in touch
+          07 — Get in touch
         </p>
         <h2 className="text-display max-w-3xl text-5xl leading-[0.95] text-cream md:text-7xl">
           Got a destination in mind? Let's plot a course.
