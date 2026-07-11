@@ -42,14 +42,14 @@ export function About() {
           >
             <div className="space-y-8">
               <p className="text-lg leading-relaxed text-foreground/85">
-                I'm a Computer Science student at Manipal University Jaipur who enjoys building software
-                that solves practical problems. My interests span full-stack development, artificial
-                intelligence, and building products that people genuinely find useful.
+                I'm a Computer Science student at Manipal University Jaipur who enjoys building
+                software that solves practical problems. My interests span full-stack development,
+                artificial intelligence, and building products that people genuinely find useful.
               </p>
               <p className="text-base leading-relaxed text-muted-foreground">
-                I've built AI-powered applications, hackathon-winning solutions, developer tools, and
-                full-stack web applications. From detecting manipulated images to automating developer
-                workflows, I enjoy taking ideas from concept to deployment.
+                I've built AI-powered applications, hackathon-winning solutions, developer tools,
+                and full-stack web applications. From detecting manipulated images to automating
+                developer workflows, I enjoy taking ideas from concept to deployment.
               </p>
 
               <div className="grid gap-8 border-t border-border pt-8 sm:grid-cols-2">
@@ -76,8 +76,8 @@ export function About() {
                     Looking ahead
                   </p>
                   <p className="text-sm text-foreground">
-                    I'm looking forward to contributing to products that impact real-world users while
-                    continuing to learn, build, and explore emerging technologies.
+                    I'm looking forward to contributing to products that impact real-world users
+                    while continuing to learn, build, and explore emerging technologies.
                   </p>
                 </div>
               </div>
