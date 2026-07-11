@@ -136,3 +136,9 @@
     opacity: 0.6;
   }
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .about-portrait:hover {
+    transform: scale(1.04);
+  }
+}
