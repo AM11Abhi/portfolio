@@ -1,44 +1,38 @@
 import { InView } from "@/components/core/in-view";
 
-// TODO: Once you add your WebP images to src/assets/gallery/, uncomment the imports below:
-// import photo1 from "@/assets/gallery/photo-1.webp";
-// import photo2 from "@/assets/gallery/photo-2.webp";
-// import photo3 from "@/assets/gallery/photo-3.webp";
-// import photo4 from "@/assets/gallery/photo-4.webp";
-// import photo5 from "@/assets/gallery/photo-5.webp";
-// import photo6 from "@/assets/gallery/photo-6.webp";
-// import photo7 from "@/assets/gallery/photo-7.webp";
-// import photo8 from "@/assets/gallery/photo-8.webp";
-// import photo9 from "@/assets/gallery/photo-9.webp";
-// import photo10 from "@/assets/gallery/photo-10.webp";
-// import photo11 from "@/assets/gallery/photo-11.webp";
-// import photo12 from "@/assets/gallery/photo-12.webp";
-// import photo13 from "@/assets/gallery/photo-13.webp";
-// import photo14 from "@/assets/gallery/photo-14.webp";
-// import photo15 from "@/assets/gallery/photo-15.webp";
+import photo1 from "@/assets/gallery/photo-1.webp";
+import photo2 from "@/assets/gallery/photo-2.webp";
+import photo3 from "@/assets/gallery/photo-3.webp";
+import photo4 from "@/assets/gallery/photo-4.webp";
+import photo5 from "@/assets/gallery/photo-5.webp";
+import photo6 from "@/assets/gallery/photo-6.webp";
+import photo7 from "@/assets/gallery/photo-7.webp";
+import photo8 from "@/assets/gallery/photo-8.webp";
+import photo9 from "@/assets/gallery/photo-9.webp";
+import photo10 from "@/assets/gallery/photo-10.webp";
 
 interface GalleryImage {
   id: number;
-  src: string | null;
+  src: string;
   aspectRatio: string;
 }
 
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: null, aspectRatio: "aspect-[3/4]" }, // Portrait (1.33)
-  { id: 2, src: null, aspectRatio: "aspect-[4/3]" }, // Landscape (0.75)
-  { id: 3, src: null, aspectRatio: "aspect-[1/1]" }, // Square (1.00)
-  { id: 4, src: null, aspectRatio: "aspect-[9/16]" }, // Tall Portrait (1.78)
-  { id: 5, src: null, aspectRatio: "aspect-[16/9]" }, // Wide Landscape (0.56)
-  { id: 6, src: null, aspectRatio: "aspect-[16/9]" }, // Wide Landscape (0.56)
-  { id: 7, src: null, aspectRatio: "aspect-[3/4]" }, // Portrait (1.33)
-  { id: 8, src: null, aspectRatio: "aspect-[1/1]" }, // Square (1.00)
-  { id: 9, src: null, aspectRatio: "aspect-[9/16]" }, // Tall Portrait (1.78)
-  { id: 10, src: null, aspectRatio: "aspect-[4/3]" }, // Landscape (0.75)
-  { id: 11, src: null, aspectRatio: "aspect-[9/16]" }, // Tall Portrait (1.78)
-  { id: 12, src: null, aspectRatio: "aspect-[16/9]" }, // Wide Landscape (0.56)
-  { id: 13, src: null, aspectRatio: "aspect-[4/3]" }, // Landscape (0.75)
-  { id: 14, src: null, aspectRatio: "aspect-[1/1]" }, // Square (1.00)
-  { id: 15, src: null, aspectRatio: "aspect-[3/4]" }, // Portrait (1.33)
+  // Column 1 (4 items) - Sum: 0.56 + 0.75 + 0.67 + 1.00 = 2.98
+  { id: 1, src: photo1, aspectRatio: "aspect-[16/9]" }, // Wide Landscape (0.56)
+  { id: 2, src: photo2, aspectRatio: "aspect-[4/3]" }, // Landscape (0.75)
+  { id: 3, src: photo3, aspectRatio: "aspect-[3/2]" }, // Landscape (0.67)
+  { id: 4, src: photo4, aspectRatio: "aspect-[1/1]" }, // Square (1.00)
+
+  // Column 2 (3 items) - Sum: 1.33 + 1.00 + 0.67 = 3.00
+  { id: 5, src: photo5, aspectRatio: "aspect-[3/4]" }, // Portrait (1.33)
+  { id: 6, src: photo6, aspectRatio: "aspect-[1/1]" }, // Square (1.00)
+  { id: 7, src: photo7, aspectRatio: "aspect-[3/2]" }, // Landscape (0.67)
+
+  // Column 3 (3 items) - Sum: 1.78 + 0.67 + 0.56 = 3.01
+  { id: 8, src: photo8, aspectRatio: "aspect-[9/16]" }, // Tall Portrait (1.78)
+  { id: 9, src: photo9, aspectRatio: "aspect-[3/2]" }, // Landscape (0.67)
+  { id: 10, src: photo10, aspectRatio: "aspect-[16/9]" }, // Wide Landscape (0.56)
 ];
 
 export function Gallery() {
