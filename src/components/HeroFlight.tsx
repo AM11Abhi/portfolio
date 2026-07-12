@@ -43,7 +43,7 @@ export function HeroFlight({
 
   return (
     <section id="hero-flight" ref={ref} className="relative h-[260vh] md:h-[300vh]">
-      <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
+      <div className="sticky top-0 h-[100lvh] w-full overflow-hidden bg-cream">
         {/* Pixel art landscape hero */}
         <motion.div
           style={{ y: skyY, scale: heroScale, opacity: heroOpacity }}
