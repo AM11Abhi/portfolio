@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from "framer-motion";
-import landingPixelArt from "@/assets/landing-pixel-art.png.asset.json";
+import landingPixelArt from "@/assets/landing-pixel-art.png.png";
 import cessna from "@/assets/cessna.png";
 import { Projects } from "./Projects";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -50,7 +50,7 @@ export function HeroFlight({
           className="absolute inset-0"
         >
           <img
-            src={"/src/assets/landing-pixel-art.png.png"}
+            src={landingPixelArt}
             alt="Pixel art mountain landscape with adventurer on a cliff"
             className="h-full w-full object-cover object-bottom"
           />
