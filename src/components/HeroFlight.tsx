@@ -42,7 +42,7 @@ export function HeroFlight({
   const scrollHintOpacity = useTransform(p, [0, 0.05], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-[260vh] md:h-[300vh]">
+    <section id="hero-flight" ref={ref} className="relative h-[260vh] md:h-[300vh]">
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden bg-cream">
         {/* Pixel art landscape hero */}
         <motion.div

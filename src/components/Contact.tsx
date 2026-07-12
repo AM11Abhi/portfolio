@@ -3,7 +3,11 @@ import { ArrowUpRight } from "lucide-react";
 const links = [
   { label: "Email", value: "abhinav7268@gmail.com", href: "mailto:abhinav7268@gmail.com" },
   { label: "GitHub", value: "github.com/AM11Abhi", href: "https://github.com/AM11Abhi" },
-  { label: "LinkedIn", value: "linkedin.com/in/abhinav-mishra", href: "https://www.linkedin.com/in/abhinav-mishra-b243662b9/" },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/abhinav-mishra",
+    href: "https://www.linkedin.com/in/abhinav-mishra-b243662b9/",
+  },
 ];
 
 export function Contact() {
