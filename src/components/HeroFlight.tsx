@@ -4,6 +4,7 @@ import landingPixelArt from "@/assets/landing-pixel-art.png.png";
 import cessna from "@/assets/cessna.png";
 import { Projects } from "./Projects";
 import { useIsMobile } from "@/hooks/use-mobile";
+import BlurText from "@/components/ui/BlurText";
 
 export function HeroFlight({
   onNavThemeChange,
@@ -13,6 +14,9 @@ export function HeroFlight({
   const ref = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
   const [isTransitionComplete, setIsTransitionComplete] = useState(false);
+  const [showNameAnimation, setShowNameAnimation] = useState(false);
+  const [showSubtitle, setShowSubtitle] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -63,14 +67,43 @@ export function HeroFlight({
           className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-6"
         >
           <div className="w-full max-w-7xl">
-            <p className="mb-3 text-center text-[10px] font-medium uppercase tracking-[0.4em] text-cream md:mb-4 md:text-xs drop-shadow-[0_2px_8px_rgba(20,30,60,0.7)]">
-              Hello, I'm
-            </p>
+            <BlurText
+              text="Hello, I'm"
+              animateBy="words"
+              direction="top"
+              delay={80}
+              stepDuration={0.22}
+              className="mb-3 text-center justify-center text-[10px] font-medium uppercase tracking-[0.4em] text-cream md:mb-4 md:text-xs drop-shadow-[0_2px_8px_rgba(20,30,60,0.7)]"
+              onAnimationComplete={() => setShowNameAnimation(true)}
+            />
             <h1
               className="text-display text-center text-[24vw] leading-[0.85] text-cream md:text-[15vw] drop-shadow-[0_6px_30px_rgba(20,30,60,0.7)]"
               style={{ letterSpacing: "-0.06em" }}
             >
-              Abhinav
+              {"Abhinav".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={showNameAnimation ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                  transition={{
+                    duration: 0.9,
+                    delay: index * 0.035,
+                    ease: [0.215, 0.61, 0.355, 1],
+                  }}
+                  onAnimationComplete={
+                    index === 6
+                      ? () => {
+                          if (showNameAnimation) {
+                            setShowSubtitle(true);
+                          }
+                        }
+                      : undefined
+                  }
+                  style={{ display: "inline-block" }}
+                >
+                  {char}
+                </motion.span>
+              ))}
             </h1>
           </div>
         </motion.div>
@@ -80,19 +113,34 @@ export function HeroFlight({
           style={{ opacity: heroOpacity }}
           className="absolute inset-x-0 bottom-6 z-30 flex flex-col items-center gap-6 px-6 text-center"
         >
-          <p className="max-w-xl text-sm text-cream/90 md:text-base">
+          <motion.p
+            initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+            animate={showSubtitle ? { opacity: 1, y: 0, filter: "blur(0px)" } : { opacity: 0, y: 20, filter: "blur(6px)" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            onAnimationComplete={() => {
+              if (showSubtitle) {
+                setShowScrollHint(true);
+              }
+            }}
+            className="max-w-xl text-sm text-cream/90 md:text-base"
+          >
             Software Engineer & Builder — building products, exploring ideas, and creating digital
             experiences.
-          </p>
+          </motion.p>
           <motion.div
-            style={{ opacity: scrollHintOpacity }}
-            className="flex flex-col items-center gap-2 text-cream/80"
+            animate={{ opacity: showScrollHint ? 1 : 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-[10px] uppercase tracking-[0.4em]">Scroll</span>
-            <span
-              className="block h-4 w-px bg-cream/60"
-              style={{ animation: "scroll-hint 1.8s ease-in-out infinite" }}
-            />
+            <motion.div
+              style={{ opacity: scrollHintOpacity }}
+              className="flex flex-col items-center gap-2 text-cream/80"
+            >
+              <span className="text-[10px] uppercase tracking-[0.4em]">Scroll</span>
+              <span
+                className="block h-4 w-px bg-cream/60"
+                style={{ animation: "scroll-hint 1.8s ease-in-out infinite" }}
+              />
+            </motion.div>
           </motion.div>
         </motion.div>
 
