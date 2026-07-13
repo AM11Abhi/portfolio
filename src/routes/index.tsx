@@ -13,7 +13,7 @@ import { Nav } from "@/components/Nav";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Abhinav — Software Engineer & Builder" },
+      { title: "Abhinav | Portfolio" },
       {
         name: "description",
         content:
